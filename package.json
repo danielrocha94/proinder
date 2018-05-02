@@ -12,7 +12,6 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
-    "oracledb": "github:oracle/node-oracledb#v2.2.0",
     "pug": "^2.0.3"
   }
 }
