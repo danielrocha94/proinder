@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  link(rel="stylesheet" type="text/css" href="/stylesheets/login.css")
+  .home
+    .login-page
+      .form
+        form.login-form(method='POST' action='/login')
+          input(type="text" name="email" placeholder="Correo electronico" required)
+          input(type="password" name="password" placeholder="Contraseña" required)
+          button(type='submit') Inicia Sesiòn
+          p.message
+            | No estas registrado? 
+            a(href="/register") Crea una cuenta
+

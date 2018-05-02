@@ -1,0 +1,274 @@
+extends layout
+
+block content
+  // Home
+  .home
+    // Home Slider
+    .home_slider_container
+      .owl-carousel.owl-theme.home_slider
+        // Home Slider Item
+        .owl-item
+          .home_slider_background(style="background-image:url(images/slider-1.jpg)")
+          .home_slider_content.text-center
+            d-flex.flex-column.align-items-center.justify-content-center
+            h1 Recolectores
+            .button.home_slider_button
+              a(href="#") Inscrìbete gratis
+        // Home Slider Item
+        .owl-item
+          .home_slider_background(style="background-image:url(images/acopio-2.jpg)")
+          .home_slider_content.text-center
+            h1 Centros de acopio
+            .button.home_slider_button
+              a(href="#") Ayuda a la causa
+        // Home Slider Item
+        .owl-item
+          .home_slider_background(style="background-image:url(images/slider-3.jpg)")
+          .home_slider_content.text-center
+            h1 Sociedad civil
+            .button.home_slider_button
+              a(href="#") Conoce Màs
+      .home_slider_nav.d-flex.flex-column.align-items-center.justify-content-center
+        img(src="images/arrow_r.png" alt="")
+  // Intro
+  .intro
+    .container
+      .row
+        .col
+          .section_title_container
+            .section_image
+              img(src="images/church_1.png" alt="")
+            .section_title
+              h2 ¿Què estamos haciendo?
+            .section_subtitle Apoya a la causa
+      .row.intro_content
+        // Intro Text
+        .col-lg-6
+          .intro_text
+            p
+              | El Programa Inclusivo de Reciclaje busca incorporar a los recolectores urbanos, a los mini-centros de acopio de materiales reciclables, a los hogares, escuelas y empresas de Torreón a un sistema inclusivo de reciclaje. Buscamos que los recolectores y los centros de acopio mejoren sus ingresos y sus condiciones de trabajo.
+            .button.intro_button
+              a(href="#") Leer Màs
+        // Intro Image
+        .col-lg-6
+          .intro_image
+            iframe(src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fproinder%2Fvideos%2F514472602039074%2F&width=500&show_text=false&height=280&appId" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true" allow="encrypted-media" allowfullscreen="true")
+  // Services
+  .services
+    .services_background.parallax-window(data-parallax="scroll" data-image-src="images/services.jpg" data-speed="0.8")
+    .container
+      .row
+        .col
+          .section_title_container
+            .section_image
+              img(src="images/church_2.png" alt="")
+            .section_title
+              h2 ¿Cuales son nuestros objetivos?
+            .section_subtitle Proinder Torreòn
+      .row
+        .col
+          .services_text.text-center
+            p
+              | Crear un sistema de reciclaje inclusivo en Torreón, con la finalidad de regular la actividad de los pepenadores, de los centros de acopio de reciclables y apoyar a las familias. Por otra parte se busca incluir a este sistema de reciclaje a las escuelas y empresas de Torreón, además de establecer un centro de reciclaje municipal donde parte de las ganancias se apliquen a campañas sociales y ecológicas.
+      .row.services_row
+        // Services Item
+        .col-lg-2.col-md-4.col-sm-6
+          .services_item.text-center
+            .services_image
+              img(src="images/trabajadores.svg" alt="")
+            .services_title Recolectores
+        // Services Item
+        .col-lg-2.col-md-4.col-sm-6
+          .services_item.text-center
+            .services_image
+              img(src="images/centroacopio.svg" alt="")
+            .services_title Centros de acopio
+        // Services Item
+        .col-lg-2.col-md-4.col-sm-6
+          .services_item.text-center
+            .services_image
+              img(src="images/escuela.svg" alt="" height="48")
+            .services_title Escuelas
+        // Services Item
+        .col-lg-2.col-md-4.col-sm-6
+          .services_item.text-center
+            .services_image
+              img(src="images/empresa.png" alt="" width="48")
+            .services_title Empresas
+        // Services Item
+        .col-lg-2.col-md-4.col-sm-6
+          .services_item.text-center
+            .services_image
+              img(src="images/sociedad.svg" alt="")
+            .services_title Sociedad Civil
+        // Services Item
+        .col-lg-2.col-md-4.col-sm-6
+          .services_item.text-center
+            .services_image
+              img(src="images/universidad.svg" alt="")
+            .services_title Universidades y centros de investigaciòn
+  // Sermon
+  .sermon
+    .sermon_background(style="background-image:url(images/sermon.png)")
+    .container
+      .row
+        .col
+          .section_title_container
+            .section_image
+              img(src="images/trabajadores.svg" alt="" width="150")
+            .section_title
+              h2 Recolectores
+            .section_subtitle Apoyar a la comunidad
+      .row.sermon_row
+        // Sermon Image
+        .col-lg-6
+          .sermon_image
+            img(src="images/reco-3.jpg" alt="")
+        // Sermon Content
+        .col-lg-6
+          .sermon_content
+            .sermon_title Nuestra meta es incluir a los recolectores en el Programa Inclusivo de Reciclaje
+            .sermon_text
+              p
+                | Incluir a los recolectores urbanos en el Programa Inclusivo de Reciclaje.
+              p
+                | Beneficios: 
+                | Se les identificará con un gafete y un chaleco. Se les dará capacitación en diferentes temas y acercará a programas de apoyo de gobierno. Se les vinculará a empresas o escuelas interesadas en entregar los materiales reciclables y se promoverá el pago justo de los materiales.
+            .button.sermon_button
+              a(href="sermons.html") Leer Màs
+  // Causes
+  .causes
+    .container
+      .row
+        .col
+          .section_title_container
+            .section_image
+              img(src="images/church_4.png" alt="")
+            .section_title
+              h2 Nuestra causa
+            .section_subtitle Servir por una mejor ciudad.
+      .row
+        .col
+          .causes_slider_container
+            // Causes Slider
+            .owl-carousel.owl-theme.causes_slider
+              // Causes Slider Item
+              .owl-item.text-center.causes_item
+                .causes_item_image
+                  img(src="images/reco-2.jpg" alt="")
+                .causes_item_title Apoyar a los recolectores
+                .causes_item_text
+                  p Incluir a los recolectores urbanos en el Programa Inclusivo de Reciclaje.
+              // Causes Slider Item
+              .owl-item.text-center.causes_item
+                .causes_item_image
+                  img(src="images/acopio-2.jpg" alt="")
+                .causes_item_title Centros de acopio
+                .causes_item_text
+                  p Se apoyará a centros de acopio para para regularizar su actividad ante el municipio y el estado, lo que mejorará la competitividad y permitirá el crecimiento.
+              // Causes Slider Item
+              .owl-item.text-center.causes_item
+                .causes_item_image
+                  img(src="images/esc-1.jpg" alt="")
+                .causes_item_title Escuelas
+                .causes_item_text
+                  p Se busca promover la separación de residuos y el reciclaje en escuelas de educación básica y media a fin de lograr su participación en el Programa Inclusivo de reciclaje.
+              // Causes Slider Item
+              .owl-item.text-center.causes_item
+                .causes_item_image
+                  img(src="images/causes_4.jpg" alt="")
+                .causes_item_title Sociedad civil
+                .causes_item_text
+                  p Lograr que el 50% de la población de Torreón tenga información sobre separación de residuos y reciclaje mediante una campaña de concientización a la población con el fin de que entreguen separado el material a los recolectores.
+            .causes_slider_nav.causes_slider_prev.trans_200.d-flex.flex-column.align-items-center.justify-content-center
+              img(src="images/arrow_l.png" alt="")
+            .causes_slider_nav.causes_slider_next.trans_200.d-flex.flex-column.align-items-center.justify-content-center
+              img(src="images/arrow_r.png" alt="")
+  // Quote
+  //.quote
+    .quote_background.parallax-window(data-parallax="scroll" data-image-src="images/quote.jpg" data-speed="0.8")
+    .container
+      .row
+        .col
+          .section_title_container
+            .section_image
+              img(src="images/church_5.png" alt="")
+            .section_title
+              h2 Quote of the day
+            .section_subtitle God loves us all
+      .row.quote_row
+        .col.text-center
+          .quote_char
+            img(src="images/quote_char.png" alt="")
+          .quote_text
+            | 4 One thing I ask from the LORD, this only do I seek: that I may dwell in the house of the LORD all the days of my life, to gaze on the beauty of the LORD and to seek him in his temple.
+          .quote_source Psalm 27:4
+  // News
+  //.news
+    .container
+      .row
+        .col
+          .section_title_container
+            .section_image
+              img(src="images/church_6.png" alt="")
+            .section_title
+              h2 Latest News
+            .section_subtitle God loves us all
+      .row.news_row
+        // News Item
+        .col-lg-4.news_col
+          .news_item
+            .news_image
+              img(src="images/news_1.jpg" alt="")
+              .news_date.d-flex.flex-column.align-items-center.justify-content-center
+                .news_day 06
+                .news_month March, 2018
+            .news_content
+              .news_title Latest news in the '18 community
+              .news_text
+                p
+                  | Praesent malesuada congue magna at finibus. In hac habitasse platea dic tumst malesuada congue magna at finibus. In hac habitasse platea.
+              .news_link
+                a(href="blog.html") Read More
+        // News Item
+        .col-lg-4.news_col
+          .news_item
+            .news_image
+              img(src="images/news_2.jpg" alt="")
+              .news_date.d-flex.flex-column.align-items-center.justify-content-center
+                .news_day 05
+                .news_month March, 2018
+            .news_content
+              .news_title Help us raise money for the kids
+              .news_text
+                p
+                  | Praesent malesuada congue magna at finibus. In hac habitasse platea dic tumst malesuada congue magna at finibus. In hac habitasse platea.
+              .news_link
+                a(href="blog.html") Read More
+        // News Item
+        .col-lg-4.news_col
+          .news_item
+            .news_image
+              img(src="images/news_3.jpg" alt="")
+              .news_date.d-flex.flex-column.align-items-center.justify-content-center
+                .news_day 03
+                .news_month March, 2018
+            .news_content
+              .news_title The best way to pray
+              .news_text
+                p
+                  | Praesent malesuada congue magna at finibus. In hac habitasse platea dic tumst malesuada congue magna at finibus. In hac habitasse platea.
+              .news_link
+                a(href="blog.html") Read More
+  // Newsletter
+  .newsletter
+    .container
+      .row
+        .col
+          .newsletter_content.d-flex.flex-lg-row.flex-column.align-items-center.justify-content-start
+            .newsletter_title Suscríbete a nuestro boletín
+            .newsletter_form_container.ml-lg-auto
+              form#newsletter_form.newsletter_form(action="#")
+                input.newsletter_input(type="email" placeholder="Tu Correo electrònico" required="required")
+                button#newsletter_button.newsletter_button Suscribirse
+
