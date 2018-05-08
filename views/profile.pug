@@ -2,5 +2,11 @@ extends layout
 
 block content
   .home(style="padding-top: 170px;")
-    p Bienvenido
+    h3 Bienvenido, 
+      = user.first_name + " " + user.last_name
+    br
+    br
+
+    h3 tu email es:
+    = user.email
 

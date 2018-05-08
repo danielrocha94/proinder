@@ -28,8 +28,13 @@ router.get('/contacto', (req, res, next) => {
   return res.render('contacto', {title: 'Contacto'});
 });
 
-router.get('/profile', (req, res, next) => {
-  return res.render('profile', {title: 'Perfil'});
+router.get('/profile', mid.requiresLogin, (req, res, next) => {
+  const { user } = req.session;
+  if ( !!user ) {
+    return res.render('profile', {title: 'Perfil', user: user});
+  } else {
+    return res.render('index');
+  }
 });
 
 router.get('/admin/recolectores', (req, res, next) => {
@@ -50,7 +55,6 @@ router.get('/admin/clientes', (req, res, next) => {
   }
 
   resolveDao(req, res, next).then(function(res) {
-    debugger;
     return res.render('admin/clientes', { title: 'Clientes', res: res });
   });
 });

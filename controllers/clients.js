@@ -41,7 +41,7 @@ async function login(req, res, next) {
     if (client.email && client.password ){
       client = await clients.find(client)
       if (!!client[0] && client[0].password === req.body.password) {
-        debugger;
+        req.session.user = client[0];
         return res.redirect('/profile')
       } else {
         //res.render('login', { flash: {type: "error", message: "El email o contraseña son invalidos."} });
@@ -69,7 +69,7 @@ async function register(req, res, next) {
         return next(err);
       } else {
         client = await clients.create(client)
-        //req.session.userId = client.email;
+        req.session.user = client[0];
         return res.redirect('/profile');
       }
     }

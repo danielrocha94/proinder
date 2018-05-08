@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const database = require('../services/database.js');
 const router   = require('../routes/index.js')
+const session  = require('express-session');
 
 let httpServer;
 
@@ -16,6 +17,12 @@ function initialize() {
     app.use(express.static('client'));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(session({
+      secret: 'proinder lag',
+      resave:false,
+      saveUninitialized: true,
+      cookie: { secure: false }
+    }));
 
     // serve static files from /public and /assets
     app.use(express.static(`${__dirname}/../public`));
