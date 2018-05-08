@@ -1,0 +1,270 @@
+extends layout
+
+block content
+  // Header
+  .breadcrumbs
+    .col-sm-4
+      .page-header.float-left
+        .page-title
+          h1 Dashboard
+    .col-sm-8
+      .page-header.float-right
+        .page-title
+          ol.breadcrumb.text-right
+            li.active Dashboard
+  .content.mt-3
+    .col-sm-12
+      .alert.alert-success.alert-dismissible.fade.show(role="alert")
+        span.badge.badge-pill.badge-success Success
+        |  Has iniciado sesion exitosamente.
+        button.close(type="button" data-dismiss="alert" aria-label="Close")
+          span(aria-hidden="true") ×
+    .col-sm-6.col-lg-3
+      .card.text-white.bg-flat-color-1
+        .card-body.pb-0
+          .dropdown.float-right
+            button#dropdownMenuButton.btn.bg-transparent.dropdown-toggle.theme-toggle.text-light(type="button" data-toggle="dropdown")
+              i.fa.fa-cog
+            .dropdown-menu(aria-labelledby="dropdownMenuButton")
+              .dropdown-menu-content
+                a.dropdown-item(href="#") Action
+                a.dropdown-item(href="#") Another action
+                a.dropdown-item(href="#") Something else here
+          h4.mb-0
+            span.count 24
+          p.text-light Usuarios Registrados
+          .chart-wrapper.px-0(style="height:70px;" height="70")
+            canvas#widgetChart1
+    // /.col
+    .col-sm-6.col-lg-3
+      .card.text-white.bg-flat-color-2
+        .card-body.pb-0
+          .dropdown.float-right
+            button#dropdownMenuButton.btn.bg-transparent.dropdown-toggle.theme-toggle.text-light(type="button" data-toggle="dropdown")
+              i.fa.fa-cog
+            .dropdown-menu(aria-labelledby="dropdownMenuButton")
+              .dropdown-menu-content
+                a.dropdown-item(href="#") Action
+                a.dropdown-item(href="#") Another action
+                a.dropdown-item(href="#") Something else here
+          h4.mb-0
+            span.count 7
+          p.text-light Recolectores Registrados
+          .chart-wrapper.px-0(style="height:70px;" height="70")
+            canvas#widgetChart2
+    // /.col
+    .col-sm-6.col-lg-3
+      .card.text-white.bg-flat-color-3
+        .card-body.pb-0
+          .dropdown.float-right
+            button#dropdownMenuButton.btn.bg-transparent.dropdown-toggle.theme-toggle.text-light(type="button" data-toggle="dropdown")
+              i.fa.fa-cog
+            .dropdown-menu(aria-labelledby="dropdownMenuButton")
+              .dropdown-menu-content
+                a.dropdown-item(href="#") Action
+                a.dropdown-item(href="#") Another action
+                a.dropdown-item(href="#") Something else here
+          h4.mb-0
+            span.count 10468
+          p.text-light Members online
+        .chart-wrapper.px-0(style="height:70px;" height="70")
+          canvas#widgetChart3
+    // /.col
+    .col-sm-6.col-lg-3
+      .card.text-white.bg-flat-color-4
+        .card-body.pb-0
+          .dropdown.float-right
+            button#dropdownMenuButton.btn.bg-transparent.dropdown-toggle.theme-toggle.text-light(type="button" data-toggle="dropdown")
+              i.fa.fa-cog
+            .dropdown-menu(aria-labelledby="dropdownMenuButton")
+              .dropdown-menu-content
+                a.dropdown-item(href="#") Action
+                a.dropdown-item(href="#") Another action
+                a.dropdown-item(href="#") Something else here
+          h4.mb-0
+            span.count 10468
+          p.text-light Members online
+          .chart-wrapper.px-3(style="height:70px;" height="70")
+            canvas#widgetChart4
+    // /.col
+    .col-lg-3.col-md-6
+      .social-box.facebook
+        i.fa.fa-facebook
+        ul
+          li
+            strong
+              span.count 40
+              |  k
+            span friends
+          li
+            strong
+              span.count 450
+            span feeds
+      // /social-box
+    // /.col
+    .col-lg-3.col-md-6
+      .social-box.twitter
+        i.fa.fa-twitter
+        ul
+          li
+            strong
+              span.count 30
+              |  k
+            span friends
+          li
+            strong
+              span.count 450
+            span tweets
+      // /social-box
+    // /.col
+    .col-lg-3.col-md-6
+      .social-box.linkedin
+        i.fa.fa-linkedin
+        ul
+          li
+            strong
+              span.count 40
+              |  +
+            span contacts
+          li
+            strong
+              span.count 250
+            span feeds
+      // /social-box
+    // /.col
+    .col-lg-3.col-md-6
+      .social-box.google-plus
+        i.fa.fa-google-plus
+        ul
+          li
+            strong
+              span.count 94
+              |  k
+            span followers
+          li
+            strong
+              span.count 92
+            span circles
+      // /social-box
+    // /.col
+    .col-xl-6
+      .card
+        .card-body
+          .row
+            .col-sm-4
+              h4.card-title.mb-0 Traffic
+              .small.text-muted October 2017
+            // /.col
+            .col-sm-8.hidden-sm-down
+              button.btn.btn-primary.float-right.bg-flat-color-1(type="button")
+                i.fa.fa-cloud-download
+              .btn-toolbar.float-right(role="toolbar" aria-label="Toolbar with button groups")
+                .btn-group.mr-3(data-toggle="buttons" aria-label="First group")
+                  label.btn.btn-outline-secondary
+                    input#option1(type="radio" name="options")
+                    |  Day
+                  label.btn.btn-outline-secondary.active
+                    input#option2(type="radio" name="options" checked="")
+                    |  Month
+                  label.btn.btn-outline-secondary
+                    input#option3(type="radio" name="options")
+                    |  Year
+            // /.col
+          // /.row
+          .chart-wrapper.mt-4
+            canvas#trafficChart(style="height:200px;" height="200")
+        .card-footer
+          ul
+            li
+              .text-muted Visits
+              strong 29.703 Users (40%)
+              .progress.progress-xs.mt-2(style="height: 5px;")
+                .progress-bar.bg-success(role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100")
+            li.hidden-sm-down
+              .text-muted Unique
+              strong 24.093 Users (20%)
+              .progress.progress-xs.mt-2(style="height: 5px;")
+                .progress-bar.bg-info(role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100")
+            li
+              .text-muted Pageviews
+              strong 78.706 Views (60%)
+              .progress.progress-xs.mt-2(style="height: 5px;")
+                .progress-bar.bg-warning(role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100")
+            li.hidden-sm-down
+              .text-muted New Users
+              strong 22.123 Users (80%)
+              .progress.progress-xs.mt-2(style="height: 5px;")
+                .progress-bar.bg-danger(role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100")
+            li.hidden-sm-down
+              .text-muted Bounce Rate
+              strong 40.15%
+              .progress.progress-xs.mt-2(style="height: 5px;")
+                .progress-bar(role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100")
+    .col-xl-3.col-lg-6
+      section.card
+        .twt-feed.blue-bg
+          .corner-ribon.black-ribon
+            i.fa.fa-twitter
+          .fa.fa-twitter.wtt-mark
+          .media
+            a(href="#")
+              img.align-self-center.rounded-circle.mr-3(style="width:85px; height:85px;" alt="" src="images/admin.jpg")
+            .media-body
+              h2.text-white.display-6 Jim Doe
+              p.text-light Project Manager
+        .weather-category.twt-category
+          ul
+            li.active
+              h5 750
+              |                                 Tweets
+            li
+              h5 865
+              |                                 Following
+            li
+              h5 3645
+              |                                 Followers
+        .twt-write.col-sm-12
+          textarea.form-control.t-text-area(placeholder="Write your Tweet and Enter" rows="1")
+        footer.twt-footer
+          a(href="#")
+            i.fa.fa-camera
+          a(href="#")
+            i.fa.fa-map-marker
+          |                         New Castle, UK
+          span.pull-right
+            | 32
+    .col-xl-3.col-lg-6
+      .card
+        .card-body
+          .stat-widget-one
+            .stat-icon.dib
+              i.ti-money.text-success.border-success
+            .stat-content.dib
+              .stat-text Total Profit
+              .stat-digit 1,012
+    .col-xl-3.col-lg-6
+      .card
+        .card-body
+          .stat-widget-one
+            .stat-icon.dib
+              i.ti-user.text-primary.border-primary
+            .stat-content.dib
+              .stat-text New Customer
+              .stat-digit 961
+    .col-xl-3.col-lg-6
+      .card
+        .card-body
+          .stat-widget-one
+            .stat-icon.dib
+              i.ti-layout-grid2.text-warning.border-warning
+            .stat-content.dib
+              .stat-text Active Projects
+              .stat-digit 770
+    .col-xl-6
+      .card
+        .card-header
+          h4 World
+        .Vector-map-js
+          #vmap.vmap(style="height: 265px;")
+      // /# card
+

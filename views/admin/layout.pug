@@ -1,0 +1,39 @@
+doctype html
+head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  title Panel Administrativo | ProInder
+  meta(name="description" content="Sufee Admin - HTML5 Admin Template")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+  link(rel="apple-touch-icon" href="apple-icon.png")
+  link(rel="shortcut icon" href="favicon.ico")
+  link(rel="stylesheet" href="/stylesheets/admin/normalize.css")
+  link(rel="stylesheet" href="/stylesheets/admin/bootstrap.min.css")
+  link(href="/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css")
+  link(rel="stylesheet" href="/stylesheets/admin/themify-icons.css")
+  link(rel="stylesheet" href="/stylesheets/admin/flag-icon.min.css")
+  link(rel="stylesheet" href="/stylesheets/admin/cs-skin-elastic.css")
+  // <link rel="stylesheet" href="assets/css/bootstrap-select.less">
+  link(rel="stylesheet" href="/stylesheets/admin/style2.css")
+  link(href="/stylesheets/admin/jqvmap.min.css" rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css")
+  // <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
+
+  body
+    .super_container
+      include leftPanel
+      // Right Panel
+      #right-panel.right-panel
+        include header
+        block content
+      script(src="/javascripts/admin/vendor/jquery-2.1.4.min.js")
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js")
+      script(src="/javascripts/admin/plugins.js")
+      script(src="/javascripts/admin/main.js")
+      script(src="/javascripts/admin/lib/chart-js/Chart.bundle.js")
+      script(src="/javascripts/admin/dashboard.js")
+      script(src="/javascripts/admin/widgets.js")
+      script(src="/javascripts/admin/lib/vector-map/jquery.vmap.js")
+      script(src="/javascripts/admin/lib/vector-map/jquery.vmap.min.js")
+      script(src="/javascripts/admin/lib/vector-map/jquery.vmap.sampledata.js")
+      script(src="/javascripts/admin/lib/vector-map/country/jquery.vmap.world.js")
