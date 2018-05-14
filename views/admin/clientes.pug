@@ -13,9 +13,19 @@ block content
             li.active Clientes
   .content.mt-3
     .col-sm-12
-      table
-        thead
-          tr: th Lista de Clientes
+      table(class="admin-index-table")
+        thead(style={'text-align': 'center'})
+          tr: th(colspan='4') Lista de Clientes
+          tr
+            th Nombre
+            th Apellidos
+            th Email
+            th Fecha de Registro
         tbody
-        - console.log("res", res)
+          each val in clientes
+            tr
+              td= val.first_name
+              td= val.last_name
+              td= val.email
+              td= val.creation_date
 

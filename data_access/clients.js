@@ -25,20 +25,22 @@ async function find(context) {
 
   return result.rows;
 }
-
 module.exports.find = find;
+
+async function index() {
+  let query = baseQuery;
+  
+  const result = await database.simpleExecute(query, {})
+  return result.rows
+}
+module.exports.index = index;
 
 const createSql = 
   `INSERT INTO client( first_name, last_name, email, password, role_id) 
-  values ( :name, :lastName, :email, :password, :role_id)`;
+  values ( :first_name, :last_name, :email, :password, :role_id)`;
 
 async function create(emp) {
   const client = Object.assign({}, emp);
-
-//  client.id = {
-//    dir: oracledb.BIND_OUT,
-//    type: oracledb.NUMBER
-//  }
 
   const result = await database.simpleExecute(createSql, client);
   //client.id = result.outBinds.id[0];

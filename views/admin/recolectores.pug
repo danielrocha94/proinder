@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  link(href="/stylesheets/admin/custom.css" rel="stylesheet")
   .breadcrumbs
     .col-sm-4
       .page-header.float-left
@@ -11,3 +12,21 @@ block content
         .page-title
           ol.breadcrumb.text-right
             li.active Recolectores
+  .content.mt-3
+    .col-sm-12
+      table
+        thead(style={'text-align': 'center'})
+          tr: th(colspan='4') Lista de Recolectores
+          tr
+            th Nombre
+            th Apellidos
+            th Email
+            th Fecha de Registro
+        tbody
+          each val in recolectores 
+            tr
+              td= val.first_name
+              td= val.last_name
+              td= val.email
+              td= val.creation_date
+
