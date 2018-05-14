@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  link(href="/stylesheets/admin/custom.css" rel="stylesheet")
   .breadcrumbs
     .col-sm-4
       .page-header.float-left
@@ -28,4 +29,3 @@ block content
               td= val.last_name
               td= val.email
               td= val.creation_date
-

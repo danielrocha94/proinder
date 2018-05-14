@@ -1,3 +1,33 @@
 .admin-index-table {
-  background-color: red;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.admin-index-table td, .admin-index-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.admin-index-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.admin-index-table tbody tr:hover {
+  background-color: #ddd;
+}
+.admin-index-table tbody tr {
+  background-color: white;
+}
+
+.admin-index-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding-bottom: 30px;
 }
