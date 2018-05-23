@@ -50,7 +50,9 @@ router.get('/profile', mid.requiresLogin, (req, res, next) => {
 });
 
 router.route('/admin/recolectores')
-  .get(recolectores.index);
+  .get(recolectores.index)
+  .post(recolectores.create)
+  .destroy(recolectores.destroy);
 
 router.route('/admin/clientes')
   .get(clients.index)
