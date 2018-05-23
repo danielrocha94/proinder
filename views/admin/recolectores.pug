@@ -2,6 +2,7 @@ extends layout
 
 block content
   link(href="/stylesheets/admin/custom.css" rel="stylesheet")
+  script(src="https://code.jquery.com/jquery-2.2.4.js", integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=", crossorigin="anonymous")
   .breadcrumbs
     .col-sm-4
       .page-header.float-left
@@ -17,6 +18,7 @@ block content
       table(class="admin-index-table")
         thead(style={'text-align': 'center'})
           tr: th(colspan='4') Lista de Recolectores
+            button.btn.btn-primary(type='button', data-toggle="modal", data-target='#recolectorModal', style={'float': 'right'}) Agregar Nuevo
           tr
             th Nombre
             th Apellidos
@@ -30,3 +32,35 @@ block content
               td= val.email
               td= val.creation_date
 
+  link(rel="stylesheet" type="text/css" href="/stylesheets/login.css")
+  #recolectorModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Agregar un nuevo recolector
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal-body
+          .form(style={'width': '470px', 'margin': '0px', 'max-width': '500px'})
+            form.register-form(method='POST' action='/register')
+              input#firstName(type="text" name="first_name" placeholder="Nombre" required)
+              input#lastName(type="text" name="last_name" placeholder="Apellidos" required)
+              input#email(type="text" name="email" placeholder="Correo electrònico" required)
+  
+        .modal-footer
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
+          button#registerRecollector.btn.btn-primary(type='button') Guardar recolector
+  script(type='text/javascript').
+    $('#registerRecollector').click(() => {
+      let email = $("#email").val();
+      let firstName = $("#firstName").val();
+      let lastName = $("#lastName").val();
+
+      let recollector = { first_name: firstName, last_name: lastName, email: email }
+
+      $.post("recolectores", recollector)
+        .always(() => {
+          console.log("hola");
+          window.location.reload();
+        })
+    })
