@@ -22,3 +22,16 @@ async function index() {
   return result.rows
 }
 module.exports.index = index;
+
+
+const createSql = 
+  `INSERT INTO client( first_name, last_name, email, role_id) 
+  values ( :first_name, :last_name, :email, :role_id)`;
+
+async function create(emp) {
+  const recolector = Object.assign({}, emp);
+
+  const result = await database.simpleExecute(createSql, recolector);
+  return recolector;
+}
+module.exports.create = create;
