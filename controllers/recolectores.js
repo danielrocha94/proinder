@@ -1,5 +1,16 @@
 const recolectores = require('../data_access/recolectores.js');
 
+function getRecolectorFromRec(req) {
+  let date = new Date().toJSON().slice(0,10);
+  const recolector = {
+    first_name: req.body.first_name,
+    last_name:  req.body.last_name,
+    email:      req.body.email,
+    role_id:    3,
+  };
+  return recolector;
+}
+
 async function index(req, res, next) {
   try {
     const index = await recolectores.index();
@@ -14,4 +25,17 @@ async function index(req, res, next) {
     next(err);
   }
 }
-module.exports.index = index
+module.exports.index = index;
+
+
+async function create(req, res, next) {
+  try {
+    let recolector = getRecolectorFromRec(req);
+
+    recolector = await recolectores.create(recolector)
+    res.status(201).json(recolector);
+  } catch(err) {
+    next(err);
+  }
+}
+module.exports.create = create;
