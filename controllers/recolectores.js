@@ -39,3 +39,19 @@ async function create(req, res, next) {
   }
 }
 module.exports.create = create;
+
+async function destroy(req, res, next) {
+  try {
+    const id = parseInt(req.params.id, 10);
+    const success = await recolectores.delete(id);
+
+    if (success) {
+      res.status(204).end();
+    } else {
+      res.status(404).end();
+    }
+  } catch(err) {
+    next(err);
+  }
+}
+module.exports.destroy = destroy;
