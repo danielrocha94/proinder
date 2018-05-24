@@ -35,3 +35,23 @@ async function create(emp) {
   return recolector;
 }
 module.exports.create = create;
+
+const deleteSql =
+  `begin
+      delete from client where id = :id;
+      :rowcount := sql%rowcount;
+   end;`
+
+async function del(id) {
+  const binds = {
+    id: id,
+    rowcount: {
+      dir: oracledb.BIND_OUT,
+      type: oracledb.NUMBER
+    }
+  }
+
+  const result = await database.simpleExecute(deleteSql, binds);
+  return result.outBinds.rowcount === 1;
+}
+module.exports.delete = del;
