@@ -17,20 +17,28 @@ block content
     .col-sm-12
       table(class="admin-index-table")
         thead(style={'text-align': 'center'})
-          tr: th(colspan='4') Lista de Recolectores
+          tr: th(colspan='6') Lista de Recolectores
             button.btn.btn-primary(type='button', data-toggle="modal", data-target='#recolectorModal', style={'float': 'right'}) Agregar Nuevo
           tr
+            th Id
             th Nombre
             th Apellidos
             th Email
             th Fecha de Registro
+            th Acciones
         tbody
           each val in recolectores 
-            tr
-              td= val.first_name
-              td= val.last_name
-              td= val.email
+            tr(id=`rec-${val.id}`)
+              td#recId= val.id
+              td#recFirstName= val.first_name
+              td#recLastName= val.last_name
+              td#recEmail= val.email
               td= val.creation_date
+              td
+                a.recDelete(data-id=`${val.id}`, rel="nofollow")
+                  i.fa.fa-trash(style={'color': '#dc3545', 'float':'left', 'padding-left': '10px'})
+                i.fa.fa-pencil(style={'color': '#007bff', 'float':'right', 'padding-right': '10px'})
+
 
   link(rel="stylesheet" type="text/css" href="/stylesheets/login.css")
   #recolectorModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
@@ -63,4 +71,21 @@ block content
           console.log("hola");
           window.location.reload();
         })
+    })
+
+    $('.recDelete').click(() => {
+      let id = event.target.parentElement.dataset.id;
+      let accepted;
+      accepted = confirm("Estas seguro de desear borrar a este recolector?")
+      if (accepted) {
+        $.ajax({
+          url: `recolector/${id}`,
+          type: 'DELETE',
+          success: function() {
+            $(`#rec-${id}`).hide();
+          }
+        })
+      } else {
+        console.log(accepted)
+      }
     })
