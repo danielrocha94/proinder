@@ -28,16 +28,17 @@ block content
             th Acciones
         tbody
           each val in recolectores 
-            tr(id=`rec-${val.id}`)
-              td#recId= val.id
-              td#recFirstName= val.first_name
-              td#recLastName= val.last_name
-              td#recEmail= val.email
+            tr(id=`rec-${val.id}`, data-id=`${val.id}`)
+              td#rec_id= val.id
+              td#rec_first_name.canBeEditable= val.first_name
+              td#rec_last_name.canBeEditable= val.last_name
+              td#rec_email.canBeEditable= val.email
               td= val.creation_date
               td
                 a.recDelete(data-id=`${val.id}`, rel="nofollow")
                   i.fa.fa-trash(style={'color': '#dc3545', 'float':'left', 'padding-left': '10px'})
-                i.fa.fa-pencil(style={'color': '#007bff', 'float':'right', 'padding-right': '10px'})
+                a.recEdit(data-id=`${val.id}`)
+                  i.fa.fa-pencil(style={'color': '#007bff', 'float':'right', 'padding-right': '10px'})
 
 
   link(rel="stylesheet" type="text/css" href="/stylesheets/login.css")
@@ -68,7 +69,6 @@ block content
 
       $.post("recolectores", recollector)
         .always(() => {
-          console.log("hola");
           window.location.reload();
         })
     })
@@ -85,7 +85,66 @@ block content
             $(`#rec-${id}`).hide();
           }
         })
-      } else {
-        console.log(accepted)
       }
     })
+
+    let editId;
+    let isEditing;
+
+    $('.recEdit').click(()=> {
+      if (isEditing) {
+        removeEditing();
+        let id = event.target.parentElement.dataset.id;
+        if (id !== editId) {
+          addEditing()
+        }
+      } else {
+        addEditing()
+      }
+    })
+
+    function removeEditing() {
+      isEditing = false;
+      let children = $(`#rec-${editId}`).children()
+      $.each(children, (index, value) => {
+        if (index < children.length - 2 && index != 0) {
+          $(value).attr('contenteditable', false);
+          $(value).css("border","1px solid #ddd");
+        }
+      })
+    }
+
+    function addEditing(){
+      isEditing = true;
+      editId = event.target.parentElement.dataset.id;
+      let children = $(`#rec-${editId}`).children()
+      $.each(children, (index, value) => {
+        if (index < children.length - 2 && index != 0) {
+          $(value).attr('contenteditable', true);
+          $(value).css("border","5px solid #99caff");
+        }
+      })
+    }
+
+    $(".canBeEditable").on("input",(e)=> {
+      let text = $(e.target).text()
+      let id = $(e.target).parent().data("id");
+      let obj = {};
+      let key = $(e.target).attr('id').substr(4)
+      obj[key] = text;
+
+      $(e.target).siblings().each((index, sib)=> {
+        if(index > 0 && index < 3) {
+          obj[$(sib).attr('id').substr(4)] = $(sib).text()
+        }
+      })
+
+      $.ajax({
+        url: `recolector/${id}`,
+        type: 'PUT',
+        data: obj,
+        success: function() {
+        }
+      })
+
+    });
