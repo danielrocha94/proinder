@@ -54,7 +54,8 @@ router.route('/admin/recolectores')
   .post(recolectores.create);
 
 router.route('/admin/recolector/:id?')
-  .delete(recolectores.destroy);
+  .delete(recolectores.destroy)
+  .put(recolectores.update)
 
 router.route('/admin/clientes')
   .get(clients.index)
