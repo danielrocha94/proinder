@@ -55,3 +55,19 @@ async function del(id) {
   return result.outBinds.rowcount === 1;
 }
 module.exports.delete = del;
+
+
+const updateSql = 
+  `UPDATE CLIENT SET first_name = :first_name, last_name = :last_name, email = :email, role_id = :role_id where id = :id`;
+
+async function update(emp) {
+  const recolector = Object.assign({}, emp);
+  const result = await database.simpleExecute(updateSql, recolector);
+
+  if(result.rowsAffected === 1) {
+    return recolector;
+  } else {
+    return null;
+  }
+}
+module.exports.update = update;
