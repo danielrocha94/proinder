@@ -55,3 +55,22 @@ async function destroy(req, res, next) {
   }
 }
 module.exports.destroy = destroy;
+
+async function update(req, res, next) {
+  try {
+    let recolector = getRecolectorFromRec(req);
+
+    recolector.id = parseInt(req.params.id, 10);
+
+    recolector = await recolectores.update(recolector);
+
+    if(recolector !== null) {
+      res.status(200).json(recolector)
+    } else {
+      res.status(404).end();
+    }
+  } catch(err) {
+    next(err);
+  }
+}
+module.exports.update = update;
